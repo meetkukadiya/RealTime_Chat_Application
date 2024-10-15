@@ -1,0 +1,133 @@
+.sidebar {
+  width: 27%;
+  height: 90vh;
+  background: #141618;
+  padding: 20px;
+  position: fixed;
+  margin-top: 0px;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  border-right: 3px solid white;
+}
+
+.sidebar-header {
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.sidebar-header h2 {
+  color: #000000;
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.sidebar .dropdown-toggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.sidebar .dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #34495e;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 1001;
+  min-width: 120px;
+}
+
+.sidebar .dropdown-menu .dropdown-item {
+  color: #ffffff;
+  padding: 10px 15px;
+  text-align: left;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+.sidebar .dropdown-menu .dropdown-item:hover {
+  background-color: #2c3e50;
+  border: 2px solid white;
+}
+
+.sidebar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.sidebar .message-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.sidebar .message-link {
+  display: block;
+  color: white;
+  /* background-color: #323337; */
+  border-top: 2px solid rgb(166, 166, 166);
+  border-bottom: 2px solid rgb(166, 166, 166);
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .message-link:hover {
+  background-color: #34495e;
+  color: #ffffff;
+  border: 3px solid white;
+}
+
+.sidebar .message-list .selected .message-link {
+  background-color: #4c5359;
+  color: #ffffff;
+  border: 3px solid white;
+}
+
+.sidebar .message-list .message-link {
+  display: block;
+  color: white;
+  border-top: 2px solid rgb(166, 166, 166);
+  border-bottom: 2px solid rgb(166, 166, 166);
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .message-list .message-link:hover {
+  background-color: #34495e;
+  color: #ffffff;
+  border: 3px solid white;
+}

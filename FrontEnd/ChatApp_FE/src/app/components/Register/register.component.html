@@ -1,0 +1,47 @@
+<div class="loginsignup">
+  <div class="loginsignup-container">
+    <h1 id="form-title">Register</h1>
+
+    <div class="loginsignup-fields">
+      <input
+      type="text"
+      [(ngModel)]="username"
+      name="username"
+      id="username"
+      placeholder="Your Name"
+    />
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        id="email"
+        placeholder="Email Address"
+      />
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        id="password"
+        placeholder="Password"
+      />
+    </div>
+
+    <button id="continue-button" (click)="register()">Continue</button>
+
+    <p class="loginsignup-login">
+      Already have an account?
+      <span
+        id="toggle-login"
+        style="cursor: pointer"
+        (click)="navigateTo('/login')"
+      >
+        Login here
+      </span>
+    </p>
+
+    <div class="loginsignup-agree">
+      <input type="checkbox" name="agree" id="agree" />
+      <p>By continuing, I agree to the terms of use & privacy policy.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h2>{{ userName || "User" }}</h2>
+    <div class="dropdown">
+      <button class="dropdown-toggle">⋮</button>
+      <div class="dropdown-menu">
+        <button class="dropdown-item">Clear Chat</button>
+        <button class="dropdown-item" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+  <ul class="message-list">
+    <li
+      *ngFor="let user of userList"
+      [ngClass]="{ selected: selectedUser === user.email }"
+    >
+      <a class="message-link" (click)="onUserClick(user.email)">{{
+        user.email
+      }}</a>
+    </li>
+  </ul>
+</div>

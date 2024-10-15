@@ -1,0 +1,144 @@
+<!-- <div class="chat-container" *ngIf="selectedChat"> -->
+<div class="chat-container">
+  <!-- <h2>{{ selectedChat.name }}</h2> -->
+
+  <div class="userdetail">
+    <!-- <app-sidebar (userSelected)="onUserSelected($event)"></app-sidebar> -->
+    <h2>{{ selectedUser || "Sender Name" }}</h2>
+    <!-- <span *ngIf="isUserOnline(selectedUser)" class="online-status">Online</span> -->
+    <span
+      *ngIf="isUserOnline(selectedUser); else offlineStatus"
+      class="online-status"
+      [ngClass]="{ online: isUserOnline(selectedUser) }"
+    >
+      Online
+    </span>
+    <ng-template #offlineStatus>
+      <span
+        class="offline-status"
+        [ngClass]="{ offline: !isUserOnline(selectedUser) }"
+      >
+        Offline
+      </span>
+    </ng-template>
+  </div>
+
+  <!-- <div class="chat-window"> -->
+  <!-- <div *ngFor="let message of selectedChat.messages" class="message"> -->
+  <!-- <div class="message">
+      <span class="user"> UserName : </span>
+      <span class="text"> Hello </span> -->
+  <!-- <span class="user">{{ UserName }}:</span>
+      <span class="text">{{ Message }}</span> -->
+  <!-- </div>
+  </div> -->
+
+  <div class="chat-window">
+    <!-- <div
+      *ngFor="let message of selectedChat.messages"
+      [ngClass]="{a
+        'message-user': message.sender === 'user',
+        'message-opponent': message.sender === 'opponent'
+      }"
+      class="message"
+    > -->
+    <!-- <div>
+      <span class="user">User 1 : </span>
+      <span class="text">Hello </span>
+    </div> -->
+    <!-- <div
+      *ngFor="let message of messages"
+      [ngClass]="{
+        'message-sent': message.sender === userEmail && message.receiver === selectedUser,
+        'message-received': message.receiver === userEmail  && message.receiver === userEmail
+      }"
+      class="message"
+    >
+      <div
+        [ngClass]="{
+          'message-s': message.sender === userEmail,
+          'message-r': message.receiver === userEmail
+        }"
+      >
+        <span class="user"
+          >{{ message.sender === userEmail ? "You" : selectedUser }}:</span
+        >
+        <span class="text">{{ message.text }}</span>
+        <span class="timestamp">{{ message.timestamp }}</span>
+      </div>
+    </div> -->
+
+    <!-- <div
+      *ngFor="let message of messages"
+      [ngClass]="{
+        'message-sent':
+          message.sender === userEmail && message.receiver === selectedUser,
+        'message-received':
+          message.sender === selectedUser && message.receiver === userEmail
+      }"
+      class="message"
+    >
+      <div
+        [ngClass]="{
+          'message-s':
+            message.sender === userEmail && message.receiver === selectedUser,
+          'message-r':
+            message.sender === selectedUser && message.receiver === userEmail
+        }"
+      >
+        <span class="user">
+          {{ message.sender === userEmail ? "You" : selectedUser }}:
+        </span>
+        <span class="text">{{ message.text }}</span>
+        <span class="timestamp">{{ message.timestamp }}</span>
+      </div>
+    </div> -->
+
+    <ng-container *ngFor="let message of messages">
+      <div
+        *ngIf="
+          (message.sender === userEmail && message.receiver === selectedUser) ||
+          (message.sender === selectedUser && message.receiver === userEmail)
+        "
+        [ngClass]="{
+          'message-sent':
+            message.sender === userEmail && message.receiver === selectedUser,
+          'message-received':
+            message.sender === selectedUser && message.receiver === userEmail
+        }"
+        class="message"
+      >
+        <div
+          [ngClass]="{
+            'message-s':
+              message.sender === userEmail && message.receiver === selectedUser,
+            'message-r':
+              message.sender === selectedUser && message.receiver === userEmail
+          }"
+        >
+          <span class="user">
+            {{ message.sender === userEmail ? "You" : selectedUser }}:
+          </span>
+          <span class="text">{{ message.text }}</span>
+          <span class="timestamp">{{ message.timestamp }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="chat-input">
+    <!-- <input
+      type="text"
+      placeholder="Type a message..."
+      [(ngModel)]="newMessage"
+    /> -->
+    <input
+      type="text"
+      placeholder="Type a message..."
+      [(ngModel)]="newMessage"
+      (keydown.enter)="sendMessage()"
+    />
+    <button (click)="sendMessage()">SEND</button>
+    <!-- <button (click)="sendMessage()">Send</button> -->
+  </div>
+</div>

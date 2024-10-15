@@ -1,0 +1,12 @@
+.chat-app {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+}
+.sidebar {
+  width: 27%;
+}
+
+.chat {
+  width: 73%;
+}

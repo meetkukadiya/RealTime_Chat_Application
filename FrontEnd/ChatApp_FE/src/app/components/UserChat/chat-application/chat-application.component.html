@@ -1,0 +1,12 @@
+<div class="chat-app">
+  <app-sidebar
+    class="sidebar"
+    [activeUser]="activeUser"
+    (userSelected)="onUserSelected($event)"
+  ></app-sidebar>
+  <app-chat
+    (messageSent)="activeUser = $event"
+    class="chat"
+    [selectedUser]="activeUser"
+  ></app-chat>
+</div>
